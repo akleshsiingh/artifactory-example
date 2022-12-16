@@ -3,5 +3,136 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "tvmaze": {
+      "projectType": "library",
+      "root": "projects/tvmaze",
+      "sourceRoot": "projects/tvmaze/src",
+      "prefix": "tm",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/tvmaze/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/tvmaze/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/tvmaze/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tvmaze/src/test.ts",
+            "tsConfig": "projects/tvmaze/tsconfig.spec.json",
+            "karmaConfig": "projects/tvmaze/karma.conf.js"
+          }
+        }
+      }
+    },
+    "tvmazetest": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/tvmazetest",
+      "sourceRoot": "projects/tvmazetest/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/tvmazetest",
+            "index": "projects/tvmazetest/src/index.html",
+            "main": "projects/tvmazetest/src/main.ts",
+            "polyfills": "projects/tvmazetest/src/polyfills.ts",
+            "tsConfig": "projects/tvmazetest/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/tvmazetest/src/favicon.ico",
+              "projects/tvmazetest/src/assets"
+            ],
+            "styles": [
+              "projects/tvmazetest/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/tvmazetest/src/environments/environment.ts",
+                  "with": "projects/tvmazetest/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "tvmazetest:build:production"
+            },
+            "development": {
+              "browserTarget": "tvmazetest:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tvmazetest:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tvmazetest/src/test.ts",
+            "polyfills": "projects/tvmazetest/src/polyfills.ts",
+            "tsConfig": "projects/tvmazetest/tsconfig.spec.json",
+            "karmaConfig": "projects/tvmazetest/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/tvmazetest/src/favicon.ico",
+              "projects/tvmazetest/src/assets"
+            ],
+            "styles": [
+              "projects/tvmazetest/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
   }
 }
