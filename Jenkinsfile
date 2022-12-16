@@ -1,4 +1,4 @@
-def branch = env.BRANCH_NAME
+def branch = 'development'
 pipeline {
     agent any
 
