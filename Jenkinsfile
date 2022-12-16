@@ -1,3 +1,4 @@
+def branch = env.BRANCH_NAME
 pipeline {
     agent any
 
@@ -12,6 +13,7 @@ pipeline {
           steps{
 
             script{
+              sh 'echo $BRANCH_NAME'
               sh 'echo "checkout out to branch ${BRANCH_NAME}"'
               sh 'git checkout ${BRANCH_NAME}'
               sh 'git pull'
