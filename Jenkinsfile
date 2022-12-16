@@ -37,6 +37,8 @@ pipeline {
             script{
               sh 'echo building appication'
               sh 'npm run build'
+              sh 'cd dist/tvmaze'
+              sh 'npm pack'
             }
           }
         }
