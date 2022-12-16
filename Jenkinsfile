@@ -10,6 +10,7 @@ pipeline {
 
         stage('CHECKOUT') {
           steps{
+
             script{
               sh 'echo "checkout out to branch ${BRANCH_NAME}"'
               sh 'git checkout ${BRANCH_NAME}'
