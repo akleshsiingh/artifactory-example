@@ -24,6 +24,7 @@ pipeline {
           steps{
             script{
               sh 'echo run npm install'
+              sh 'user is >>> whoami'
               sh 'npm i'
             }
           }
