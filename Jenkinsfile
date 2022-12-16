@@ -15,7 +15,7 @@ pipeline {
             script{
               sh 'echo $BRANCH_NAME'
               sh 'echo "checkout out to branch ${BRANCH_NAME}"'
-              sh 'git checkout ${BRANCH_NAME}'
+              sh 'git checkout development'
               sh 'git pull'
             }
           }
