@@ -1,7 +1,7 @@
 def branch = "development"
 pipeline {
     agent any
-    //  tools {nodejs "nodejs"}
+    tools {nodejs "NODEJS"}
 
     stages {
         stage('Hello') {
@@ -15,7 +15,7 @@ pipeline {
 
             script{
               sh 'echo $BRANCH_NAME'
-              sh 'echo checkout out to branch ${branch}'
+              sh 'echo checkout out to ${branch}'
               sh 'git checkout development'
               sh 'git pull'
             }
