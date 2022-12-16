@@ -1,4 +1,4 @@
-def branch = 'development'
+def branch = "development"
 pipeline {
     agent any
      tools {nodejs "nodejs"}
@@ -15,7 +15,7 @@ pipeline {
 
             script{
               sh 'echo $BRANCH_NAME'
-              sh 'echo "checkout out to branch ${BRANCH_NAME}"'
+              sh 'echo checkout out to branch ${branch}'
               sh 'git checkout development'
               sh 'git pull'
             }
