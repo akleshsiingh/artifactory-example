@@ -36,7 +36,7 @@ pipeline {
           steps {
             script{
               sh 'echo building appication'
-              sh 'npm run build'
+              sh 'npm run build --prod'
               sh 'cd dist/tvmaze'
               sh 'npm pack'
             }
