@@ -39,9 +39,9 @@ pipeline {
               sh 'npm run update'
               sh 'npm run build'
               sh 'cd dist/tvmaze'
-              sh 'git stash'
+/*               sh 'git stash'
               sh 'npm version patch'
-              sh 'git stash pop'
+              sh 'git stash pop' */
             }
           }
         }
