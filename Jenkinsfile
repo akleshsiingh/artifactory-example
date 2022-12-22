@@ -36,9 +36,18 @@ pipeline {
           steps {
             script{
               sh 'echo building appication'
-              sh 'npm run build --prod'
+              sh 'npm run build'
               sh 'cd dist/tvmaze'
-              sh 'npm pack'
+              sh 'npm version patch'
+            }
+          }
+        }
+
+        stage('PUBLISH') {
+          steps {
+            script{
+              sh 'publishing application'
+              sh 'npm publish'
             }
           }
         }
