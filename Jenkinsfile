@@ -49,7 +49,7 @@ pipeline {
           steps {
             script{
               sh 'echo publishing application'
-              sh 'npm publish'
+              // sh 'npm publish'
             }
           }
         }
