@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "update": "cd projects/tvmaze && npm version patch",
     "build": "ng build tvmaze --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

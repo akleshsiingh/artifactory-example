@@ -36,6 +36,7 @@ pipeline {
           steps {
             script{
               sh 'echo building appication'
+              sh 'npm run update'
               sh 'npm run build'
               sh 'cd dist/tvmaze'
               sh 'git stash'
