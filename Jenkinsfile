@@ -48,7 +48,7 @@ pipeline {
         stage('PUBLISH') {
           steps {
             script{
-              sh 'publishing application'
+              sh 'echo publishing application'
               sh 'npm publish'
             }
           }
