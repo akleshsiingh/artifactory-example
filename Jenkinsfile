@@ -38,7 +38,9 @@ pipeline {
               sh 'echo building appication'
               sh 'npm run build'
               sh 'cd dist/tvmaze'
+              sh 'git stash'
               sh 'npm version patch'
+              sh 'git stash pop'
             }
           }
         }
